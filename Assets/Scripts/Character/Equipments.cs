@@ -13,33 +13,67 @@ public class Equipments : MonoBehaviour
     public Armor Shoulder;
     public Armor Chest;
 
-#if UNITY_EDITOR
-    [Header("Debug - Only in editor")]
     public CharacterUnit CharacterUnit;
-    private void Start()
+    Stats stats => CharacterUnit.Race.Stats;
+    private void Awake()
     {
-        if (CharacterUnit)
-        {
-            ReAddModifiersArmor(CharacterUnit.Race.Stats);
-        }
+        List<ItemBase> helms = GameManager.Instance.itemDatabase.GetAllItemsOfType(ItemBase.Type.Helm);
+        List<ItemBase> Shoulders = GameManager.Instance.itemDatabase.GetAllItemsOfType(ItemBase.Type.Shoulder);
+        List<ItemBase> Chests = GameManager.Instance.itemDatabase.GetAllItemsOfType(ItemBase.Type.Chest);
+
+        int helmChoosen = Random.Range(0,helms.Count);
+        int ShoulderChoosen = Random.Range(0, Shoulders.Count);
+        int ChestChoosen = Random.Range(0, Chests.Count);
+
+        EquipArmor(helms[helmChoosen] as Armor);
+        EquipArmor(Shoulders[ShoulderChoosen] as Armor);
+        EquipArmor(Chests[ChestChoosen] as Armor);
+
+        Debug.Log("Equiped " + Helm.name);
+        Debug.Log("Equiped " + Shoulder.name);
+        Debug.Log("Equiped " + Chest.name);
+        if (CharacterUnit) CharacterUnit.SetData();
     }
-#endif
-    public void ReAddModifiersArmor(Stats stats)
+
+    public void ReAddModifiersArmor()
     {
-        Helm.AddModifiers(stats);
-        Shoulder.AddModifiers(stats);
-        Chest.AddModifiers(stats);
+        if (!CharacterUnit)
+        {
+            CharacterUnit = GetComponent<CharacterUnit>();
+        }
+        if (Helm) Helm.AddModifiers(stats);
+        if (Shoulder) Shoulder.AddModifiers(stats);
+        if (Chest) Chest.AddModifiers(stats);
+    }
+
+    public void RemoveModifiersArmor()
+    {
+        if (!CharacterUnit)
+        {
+            CharacterUnit = GetComponent<CharacterUnit>();
+        }
+        if (Helm) Helm.RemoveModifiers(stats);
+        if (Shoulder) Shoulder.RemoveModifiers(stats);
+        if (Chest) Chest.RemoveModifiers(stats);
     }
 
     public void EquipWeapon(ItemBase weapon, Stats stats)
     {
+        if (!CharacterUnit)
+        {
+            CharacterUnit = GetComponent<CharacterUnit>();
+        }
         if (RightArm != null) RightArm.RemoveModifiers(stats);
         RightArm = weapon;
         RightArm.AddModifiers(stats);
     }
 
-    public void EquipArmor(Armor armor, Stats stats)
+    public void EquipArmor(Armor armor)
     {
+        if (!CharacterUnit)
+        {
+            CharacterUnit = GetComponent<CharacterUnit>();
+        }
         switch (armor.type)
         {
             case Armor.Type.Helm:
@@ -53,11 +87,24 @@ public class Equipments : MonoBehaviour
                 Shoulder.AddModifiers(stats);
                 break;
             case Armor.Type.Chest:
-                if (Helm != null) Chest.RemoveModifiers(stats);
+                if (Chest != null) Chest.RemoveModifiers(stats);
                 Chest = armor;
                 Chest.AddModifiers(stats);
                 break;
         }
+    }
+
+    [ContextMenu("SaveTest")]
+    public void SaveTesting()
+    {
+        SaveSystem.SaveArmorEquipment(this, "Testing");
+    }
+
+    [ContextMenu("LoadTest")]
+    public void LoadTesting()
+    {
+        Equipments eq = this;
+        SaveSystem.LoadArmorEquipments(ref eq, "Testing");
     }
 
 }

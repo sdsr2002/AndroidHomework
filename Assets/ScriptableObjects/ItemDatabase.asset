@@ -13,9 +13,21 @@ MonoBehaviour:
   m_Name: ItemDatabase
   m_EditorClassIdentifier: 
   items:
-  - id: 0
+  - name: Helm#1
+    id: 0
     _object: {fileID: 11400000, guid: b2e4ac9d962ae3543abc55a118bebe12, type: 2}
-  - id: 1
+  - name: Shoulder#1
+    id: 1
     _object: {fileID: 11400000, guid: cbe842c21e8f94241aec7a95949e2af5, type: 2}
-  - id: 2
+  - name: Chest#1
+    id: 2
     _object: {fileID: 11400000, guid: 1340f30578b1022428ccbd821833af64, type: 2}
+  - name: Chest#2
+    id: 3
+    _object: {fileID: 11400000, guid: 3128378f3e08e33479bb79a18f55669a, type: 2}
+  - name: Helm#2
+    id: 4
+    _object: {fileID: 11400000, guid: 0fbad06a0c17e4641be307e5f15a0bed, type: 2}
+  - name: Shoulder#2
+    id: 5
+    _object: {fileID: 11400000, guid: b22e3081e36a2af48b6d69484b2316bd, type: 2}

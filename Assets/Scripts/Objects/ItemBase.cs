@@ -6,7 +6,8 @@ using UnityEngine;
 public class ItemBase : ScriptableObject
 {
     public int ID = -1;
-    [SerializeField] protected string Name;
+    [SerializeField] public string Name;
+    public Type type;
     [SerializeField] protected List<Stat.Modifier> modifiers;
 
 #if UNITY_EDITOR
@@ -51,5 +52,13 @@ public class ItemBase : ScriptableObject
                     break;
             }
         }
+    }
+
+    public enum Type
+    {
+        notAssigned,
+        Helm,
+        Shoulder,
+        Chest
     }
 }

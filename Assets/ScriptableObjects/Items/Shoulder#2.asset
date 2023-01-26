@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01a0b228c6c320e41affeb260cd6ab46, type: 3}
-  m_Name: Chest
+  m_Name: Shoulder#2
   m_EditorClassIdentifier: 
-  ID: 2
-  Name: Chest#1
-  type: 3
+  ID: 5
+  Name: Shoulder#2
+  type: 2
   modifiers:
-  - Value: 3
+  - Value: 2
     type: 2
     statType: 3

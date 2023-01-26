@@ -9,7 +9,7 @@ public class DwarfObject : RaceObject
     {
         if (Physics.RaycastNonAlloc(rb.GetComponentInChildren<Collider>().ClosestPoint(rb.transform.position + Vector3.down * 20f) + Vector3.up * 0.1f, Vector3.down, _hitSingle, 0.25f) != 0)
         {
-            rb.velocity = rb.velocity + Vector3.up * Stats.Agility * 2f;
+            rb.velocity = rb.velocity + Vector3.up * Stats.Strength * 2f;
         }
     }
 

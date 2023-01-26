@@ -32,4 +32,9 @@ public abstract class RaceObject : ScriptableObject
     {
         Rotate(gameObject.transform);
     }
+
+    public virtual void OnEnable()
+    {
+        Stats.Clear();
+    }
 }

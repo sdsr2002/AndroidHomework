@@ -14,5 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   Name: Helm#1
-  modifiers: []
+  modifiers:
+  - Value: 0.25
+    type: 1
+    statType: 1
+  - Value: 2
+    type: 2
+    statType: 3
   type: 1

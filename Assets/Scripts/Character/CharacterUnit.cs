@@ -70,11 +70,9 @@ public class CharacterUnit : MonoBehaviour
     public void SetRaceData(RaceObject data)
     {
         _rb.useGravity = false;
-#if UNITY_EDITOR
+        Equipments.RemoveModifiersArmor();
         Race = data;
-#else
-        Race = Instantiate(data);
-#endif
+        Equipments.ReAddModifiersArmor();
         if (_Collider) Destroy(_Collider);
 
         _Collider = Instantiate(Race.Prefab,
@@ -88,7 +86,7 @@ public class CharacterUnit : MonoBehaviour
         _rb.useGravity = true;
     }
 
-    private void SetData()
+    internal void SetData()
     {
         Health = MaxHealth;
         Stamina = MaxStamina;

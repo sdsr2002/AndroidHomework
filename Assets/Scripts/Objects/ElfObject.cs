@@ -1,7 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New HumanStats", menuName = "Stats/Race/Human")]
-public class HumanObject : RaceObject
+[CreateAssetMenu(fileName = "New ElfStats", menuName = "Stats/Race/Elf")]
+public class ElfObject : RaceObject
 {
     private Vector3 _tempNewVelocity;
     RaycastHit[] _hitSingle = new RaycastHit[1];
@@ -9,7 +11,7 @@ public class HumanObject : RaceObject
     {
         if (Physics.RaycastNonAlloc(rb.GetComponentInChildren<Collider>().ClosestPoint(rb.transform.position + Vector3.down * 20f) + Vector3.up * 0.1f, Vector3.down, _hitSingle, 0.25f) != 0)
         {
-            rb.velocity = rb.velocity + Vector3.up * Stats.Strength * 1.3f;
+            rb.velocity = rb.velocity + Vector3.up * Stats.Strength * 1.8f;
         }
     }
 
@@ -27,13 +29,12 @@ public class HumanObject : RaceObject
 
     public override void RacialAbility(Transform Obj)
     {
-        Debug.Log("Used Human Ability");
+        Debug.Log("Used Elf Ability");
     }
 
     public override void Updatee(GameObject gameObject)
     {
         base.Updatee(gameObject);
-        Debug.Log("Updated Human");
+        Debug.Log("Updated Elf");
     }
-
 }

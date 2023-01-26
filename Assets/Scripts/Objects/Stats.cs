@@ -12,6 +12,13 @@ public class Stats
     public Stat _Strength     = new Stat("Strength"     , 1, Stat.Type.Strength     );
     public Stat _Agility      = new Stat("Agility"      , 1, Stat.Type.Agility      );
     public Stat _Constitution = new Stat("Constitution" , 1, Stat.Type.Constitution );
+
+    public void Clear()
+    {
+        _Strength.Clear();
+        _Agility.Clear();
+        _Constitution.Clear();
+    }
 }
 
 [System.Serializable]
@@ -22,6 +29,11 @@ public class Stat
         StatName = name;
         _baseValue = baseValue;
         this.type = type;
+    }
+
+    public void Clear()
+    {
+        _Modifiers.Clear();
     }
 
     public string StatName                  = "Not Assigned";

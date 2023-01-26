@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   Name: Shoulder#1
+  type: 2
   modifiers:
   - Value: 1
     type: 2
     statType: 2
-  type: 2
+  - Value: 5
+    type: 2
+    statType: 1
