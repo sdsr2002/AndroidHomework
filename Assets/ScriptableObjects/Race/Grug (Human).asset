@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ac5945141700444b03bc9cae3483ae, type: 3}
+  m_Name: Grug (Human)
+  m_EditorClassIdentifier: 
+  Stats:
+    _Strength:
+      StatName: Strength
+      _baseValue: 3
+      type: 1
+    _Agility:
+      StatName: Agility
+      _baseValue: 5
+      type: 2
+    _Constitution:
+      StatName: Constitution
+      _baseValue: 4
+      type: 3
+  Prefab: {fileID: 4942228640697918614, guid: 9b8cc98a99037804288844e7e0cfad84, type: 3}
+  LocalPosition: {x: 0, y: 0, z: 0}
