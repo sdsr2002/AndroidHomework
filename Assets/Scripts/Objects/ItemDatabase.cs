@@ -36,7 +36,7 @@ public class ItemDatabase : ScriptableObject
             items[i].name = items[i]._object.Name;
         }
     }
-
+#endif
     public ItemBase GetItemFromID(int v)
     {
         for(int i = 0; i < items.Count; i++)
@@ -46,5 +46,4 @@ public class ItemDatabase : ScriptableObject
         Debug.LogError("Did not find item with ID:" + v);
         return null;
     }
-#endif
 }
