@@ -17,11 +17,17 @@ public class Equipments : MonoBehaviour
     Stats stats => CharacterUnit.Race.Stats;
     private void Awake()
     {
+        RandomizeEquipment();
+        if (CharacterUnit) CharacterUnit.SetData();
+    }
+
+    public void RandomizeEquipment()
+    {
         List<ItemBase> helms = GameManager.Instance.itemDatabase.GetAllItemsOfType(ItemBase.Type.Helm);
         List<ItemBase> Shoulders = GameManager.Instance.itemDatabase.GetAllItemsOfType(ItemBase.Type.Shoulder);
         List<ItemBase> Chests = GameManager.Instance.itemDatabase.GetAllItemsOfType(ItemBase.Type.Chest);
 
-        int helmChoosen = Random.Range(0,helms.Count);
+        int helmChoosen = Random.Range(0, helms.Count);
         int ShoulderChoosen = Random.Range(0, Shoulders.Count);
         int ChestChoosen = Random.Range(0, Chests.Count);
 
@@ -32,7 +38,6 @@ public class Equipments : MonoBehaviour
         Debug.Log("Equiped " + Helm.name);
         Debug.Log("Equiped " + Shoulder.name);
         Debug.Log("Equiped " + Chest.name);
-        if (CharacterUnit) CharacterUnit.SetData();
     }
 
     public void ReAddModifiersArmor()

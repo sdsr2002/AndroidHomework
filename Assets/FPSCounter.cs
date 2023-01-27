@@ -22,7 +22,7 @@ public class FPSCounter : MonoBehaviour
             timer += Time.deltaTime;
             return;
         }
-        text.SetText((1f / Time.unscaledDeltaTime).ToString("0.0"));
+        text.SetText("FPS:" + (1f / Time.unscaledDeltaTime).ToString("0.0"));
         timer = 0f;
     }
 }
